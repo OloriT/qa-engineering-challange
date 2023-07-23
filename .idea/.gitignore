@@ -1,0 +1,17 @@
+# Default ignored files
+.idea/
+*.xml
+*.iml
+#/aws.xml
+#/workspace.xml
+#/compiler.xml
+#/dbnavigator.xml
+#/jarRepositories.xml
+#/misc.xml
+#/modules.xml
+#/vcs.xml
+#/qa-solution.iml
+
+## remove built apk
+*.apk
+*.ap_
