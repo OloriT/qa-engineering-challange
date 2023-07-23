@@ -1,0 +1,11 @@
+# Default ignored files
+.idea/
+*.json
+*/target/
+.DS_Store
+*.iml
+the-movie-mobile-app/src/test/java/com/skydove/themovies/Constants.java
+the-movie-mobile-app\allure-results
+
+*.apk
+*.ap_
