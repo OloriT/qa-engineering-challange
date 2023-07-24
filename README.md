@@ -1,4 +1,5 @@
 # qa-engineering-challange
+<<<<<<< HEAD
 solutions to all the qa challenge from Yassin
 
 
@@ -21,3 +22,6 @@ The challenge consists in:
 4 . Network tests
 - use one of the tracing tools to trace the app network traffic
 - simulate network velocity
+=======
+solutions to all the qa challenge from Yassir
+>>>>>>> 66d20c74185acbef36d3313b909a220a4de68c7e
