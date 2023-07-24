@@ -2,14 +2,8 @@ package com.skydove.themovies;
 
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.interactions.PointerInput;
-import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
-
-import java.time.Duration;
-import java.util.Arrays;
 
 
 public class AppActivity extends LaunchApp{
@@ -52,19 +46,8 @@ public class AppActivity extends LaunchApp{
         getDriver().findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.ImageView[1]")).click();
         Thread.sleep(4000);
         getDriver().navigate().back();
-
-        Point source = new Point(769, 309);
-        Point target = new Point(752, 2348);
-        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-        Sequence swipe = new Sequence(finger, 1);
-        swipe.addAction(finger.createPointerMove(Duration.ofMillis(0),
-                PointerInput.Origin.viewport(), source.x, source.y));
-        swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
-        swipe.addAction(finger.createPointerMove(Duration.ofMillis(700),
-                PointerInput.Origin.viewport(),target.x, target.y));
-        swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
-        driver.perform(Arrays.asList(swipe));
-
+        Thread.sleep(2000);
+        getDriver().navigate().back();
 
     }
 
@@ -74,10 +57,10 @@ public class AppActivity extends LaunchApp{
 
         //verify a user can navigate from one screen to the other
         //click on tv button
-        getDriver().findElement(By.id("com.skydoves.themovies:id/action_two")).click();
+        getDriver().findElement(By.xpath("//android.widget.FrameLayout[@content-desc=\"Tv\"]")).click();
 
         //click on stars button
-        getDriver().findElement(By.id("com.skydoves.themovies:id/action_three")).click();
+        getDriver().findElement(By.xpath("//android.widget.FrameLayout[@content-desc=\"Star\"]")).click();
 
         //verify a user can click on star to see full information about the star
         getDriver().findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[3]/android.widget.FrameLayout/android.widget.RelativeLayout")).click();
@@ -86,7 +69,7 @@ public class AppActivity extends LaunchApp{
         getDriver().findElement(By.id("com.skydoves.themovies:id/toolbar_home")).click();
 
         //verify tge agent can navigate back to the home screen
-        getDriver().findElement(By.id("com.skydoves.themovies:id/action_one")).click();
+        getDriver().findElement(By.xpath("//android.widget.FrameLayout[@content-desc=\"Movie\"]")).click();
 
     }
 

@@ -1,8 +1,8 @@
 package com.skydove.themovies;
 
 import cucumber.api.CucumberOptions;
-import cucumber.api.java.After;
-import cucumber.api.java.Before;
+//import cucumber.api.java.After;
+//import cucumber.api.java.Before;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
 import org.openqa.selenium.By;
@@ -29,7 +29,7 @@ public class LaunchApp {
 
     WebDriverWait wait;
 
-    @Before("@appium")
+    @BeforeTest
     public String init() throws MalformedURLException {
         driver = new AppiumDriver(new URL(Constants.APPIUM_URL), getCapabilities());
 
@@ -63,7 +63,7 @@ public class LaunchApp {
     }
 
 
-    @After
+    @AfterTest
     public void tearDown(){
         if (null != driver){
             getDriver().quit();
