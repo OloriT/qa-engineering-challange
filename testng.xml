@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="C:/Users/Taiwo Olori/Downloads/qa-solution/the-movie-mobile-app"><classes><class name="com.skydove.themovies.AppActivity"><methods><include name="movieScreen"/><include name="imageClick"/><include name="navigationButton"/></methods></class></classes></test></suite>

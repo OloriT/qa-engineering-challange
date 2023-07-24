@@ -1,11 +1,15 @@
 package com.skydove.themovies;
 
+import cucumber.api.CucumberOptions;
+import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.TouchAction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import java.net.MalformedURLException;
@@ -25,21 +29,17 @@ public class LaunchApp {
 
     WebDriverWait wait;
 
-    @BeforeTest
+    @Before("@appium")
     public String init() throws MalformedURLException {
         driver = new AppiumDriver(new URL(Constants.APPIUM_URL), getCapabilities());
 
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(50000));
+//        Long timeoutInSeconds = 50L;
+//        driver.manage().timeouts().implicitlyWait(timeoutInSeconds, TimeUnit.SECONDS);
         JavascriptExecutor js = (JavascriptExecutor) driver;
 
         String pageTitle = driver.findElement(By.className("android.widget.TextView")).getText();
         assertEquals("TheMovies", pageTitle);
-
-        String element = driver.findElement(By.id("f227181f-2601-4376-a377-f4505a398516")).getText();
-        if (!element.isBlank()) {
-            System.out.println(element);
-        }
-
 
         return pageTitle;
 
@@ -63,4 +63,10 @@ public class LaunchApp {
     }
 
 
+    @After
+    public void tearDown(){
+        if (null != driver){
+            getDriver().quit();
+        }
+    }
 }
