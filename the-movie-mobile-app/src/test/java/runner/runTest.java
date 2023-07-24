@@ -10,8 +10,6 @@ import cucumber.api.testng.AbstractTestNGCucumberTests;
  *
  */
 
-// Uncomment @RunWith if you are using Junit to run Test
-// @RunWith(Cucumber.class)
 
 @CucumberOptions(features={"src//test//java//features"}
         ,glue={"stepdefinations","LaunchApp"}

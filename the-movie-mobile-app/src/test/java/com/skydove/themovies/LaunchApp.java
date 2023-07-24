@@ -1,10 +1,6 @@
 package com.skydove.themovies;
 
-import cucumber.api.CucumberOptions;
-//import cucumber.api.java.After;
-//import cucumber.api.java.Before;
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.TouchAction;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.remote.DesiredCapabilities;
