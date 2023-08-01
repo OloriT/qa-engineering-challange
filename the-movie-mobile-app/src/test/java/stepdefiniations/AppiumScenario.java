@@ -18,6 +18,7 @@ public class AppiumScenario {
 
     public class AppActivity extends LaunchApp {
 
+
         @Given("^i launch the app$")
         public void i_launch_the_app() throws Throwable {
             // assert the mobile app is successfully launched

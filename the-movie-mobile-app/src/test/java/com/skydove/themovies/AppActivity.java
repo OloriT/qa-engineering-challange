@@ -1,9 +1,12 @@
 package com.skydove.themovies;
 
 import io.appium.java_client.AppiumBy;
+import io.appium.java_client.MobileBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+
+import static com.skydove.themovies.Constants.*;
 
 
 public class AppActivity extends LaunchApp{
@@ -16,7 +19,7 @@ public class AppActivity extends LaunchApp{
     public void movieScreen() {
 
         //verify a user can click on the movie title to proceed to the detailed screen
-        getDriver().findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.RelativeLayout[2]/android.widget.RelativeLayout/android.widget.TextView")).click();
+        getDriver().findElement(By.xpath(movieTitle)).click();
 
         //verify there is a title and release date on the detailed screen
         String title = getDriver().findElement(By.id("com.skydoves.themovies:id/detail_header_title")).getText();
@@ -40,10 +43,10 @@ public class AppActivity extends LaunchApp{
     @Test(priority = 1)
     public void imageClick() throws InterruptedException {
         //verify the user can click on the movie image to proceed to the detailed screen
-        getDriver().findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.RelativeLayout[4]/android.widget.ImageView")).click();
+        getDriver().findElement(By.xpath(movieImage)).click();
 
         //verify the trailer videos respond to click
-        getDriver().findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/androidx.recyclerview.widget.RecyclerView/android.widget.FrameLayout[1]/android.widget.RelativeLayout/android.widget.ImageView[1]")).click();
+        getDriver().findElement(By.xpath(movieTrailer)).click();
         Thread.sleep(4000);
         getDriver().navigate().back();
         Thread.sleep(2000);
@@ -63,7 +66,7 @@ public class AppActivity extends LaunchApp{
         getDriver().findElement(By.xpath("//android.widget.FrameLayout[@content-desc=\"Star\"]")).click();
 
         //verify a user can click on star to see full information about the star
-        getDriver().findElement(By.xpath("/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/androidx.viewpager.widget.ViewPager/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[3]/android.widget.FrameLayout/android.widget.RelativeLayout")).click();
+        getDriver().findElement(By.xpath(movieStar)).click();
 
         //verify the user can go back to all stars page
         getDriver().findElement(By.id("com.skydoves.themovies:id/toolbar_home")).click();
